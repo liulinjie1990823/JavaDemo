@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
-
     UserInfoPO getUserInfoPO(String mobile);
 
     int insert(RegisterParam registerParam);
