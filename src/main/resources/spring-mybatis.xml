@@ -12,10 +12,11 @@
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.llj.demo"/>
 
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <!-- 第一种方式：加载一个properties文件 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties"/>
-    </bean>
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+    <!--<property name="location" value="classpath:jdbc.properties"/>-->
+    <!--</bean>-->
 
 
     <!-- 配置数据源 -->
