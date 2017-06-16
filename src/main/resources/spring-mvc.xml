@@ -16,7 +16,8 @@
     <!-- 注解方式 -->
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/html/image/**" location="/image/"/>
+    <mvc:resources mapping="/image/**" location="/image/"/>
+    <mvc:resources mapping="/home/**" location="/home/"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <!--<bean id="mappingJacksonHttpMessageConverter"-->
     <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
