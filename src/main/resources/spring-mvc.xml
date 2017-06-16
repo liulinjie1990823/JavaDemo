@@ -14,8 +14,9 @@
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.llj.demo.controller"/>
     <!-- 注解方式 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/html/image/**" location="/image/"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <!--<bean id="mappingJacksonHttpMessageConverter"-->
     <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
@@ -37,7 +38,7 @@
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 

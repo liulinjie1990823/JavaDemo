@@ -62,5 +62,14 @@ public class UserService extends BaseService {
         return userInfoPO;
     }
 
+    public UserInfoPO getUser(String mobile) {
+
+        UserInfoPO userInfoPO = userMapper.getUserInfoPO(mobile);
+        if (userInfoPO == null) {
+            throw new ServiceException(ResponseCode.USER_DOES_NOT_EXIST);
+        }
+        return userInfoPO;
+    }
+
 
 }

@@ -33,6 +33,12 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity login(@RequestBody LoginParam param) {
         UserInfoPO userInfoPO = userService.login(param);
-        return ResponseUtil.genResponse(userInfoPO,ResponseCode.LOGIN_SUCCESS);
+        return ResponseUtil.genResponse(userInfoPO, ResponseCode.LOGIN_SUCCESS);
+    }
+
+    @RequestMapping(value = "/single", method = RequestMethod.GET)
+    public ResponseEntity login(@RequestParam("mobile") String mobile) {
+        UserInfoPO userInfoPO = userService.getUser(mobile);
+        return ResponseUtil.genResponse(userInfoPO, ResponseCode.LOGIN_SUCCESS);
     }
 }

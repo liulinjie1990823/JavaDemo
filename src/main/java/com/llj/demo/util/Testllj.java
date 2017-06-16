@@ -1,5 +1,6 @@
 package com.llj.demo.util;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -23,34 +24,61 @@ public class Testllj {
 //           String b =a+"   "+simple.format(birthday.getTimeInMillis()-1);
 //            System.out.println(b);
 //        }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
+//
+//        Calendar max = Calendar.getInstance();
+//        max.set(Calendar.YEAR, 2016);
+//        max.set(Calendar.MONTH, 4);
+//        max.set(Calendar.DAY_OF_MONTH, 10);
+//        max.set(Calendar.HOUR_OF_DAY, 22);
+//        max.set(Calendar.MINUTE, 22);
+//        max.set(Calendar.SECOND, 2);
+//        max.set(Calendar.MILLISECOND, 200);
+//
+//        System.out.println(simpleDateFormat.format(max.getTimeInMillis()));
+//
+//        Calendar birthday = Calendar.getInstance();
+//        birthday.set(Calendar.YEAR, 2015);
+//        birthday.set(Calendar.MONTH, 7);
+//        birthday.set(Calendar.DAY_OF_MONTH, 20);
+//        birthday.set(Calendar.HOUR_OF_DAY, 20);
+//        birthday.set(Calendar.MINUTE, 20);
+//        birthday.set(Calendar.SECOND, 20);
+//        birthday.set(Calendar.MILLISECOND, 400);
+//
+//        System.out.println(simpleDateFormat.format(birthday.getTimeInMillis()));
+//
+//        SimpleCalendar simple = getDiffData(max, birthday);
+//        System.out.println(simple.toString());
 
-        Calendar max = Calendar.getInstance();
-        max.set(Calendar.YEAR, 2016);
-        max.set(Calendar.MONTH, 4);
-        max.set(Calendar.DAY_OF_MONTH, 10);
-        max.set(Calendar.HOUR_OF_DAY, 22);
-        max.set(Calendar.MINUTE, 22);
-        max.set(Calendar.SECOND, 2);
-        max.set(Calendar.MILLISECOND, 200);
-
-        System.out.println(simpleDateFormat.format(max.getTimeInMillis()));
-
-        Calendar birthday = Calendar.getInstance();
-        birthday.set(Calendar.YEAR, 2015);
-        birthday.set(Calendar.MONTH, 7);
-        birthday.set(Calendar.DAY_OF_MONTH, 20);
-        birthday.set(Calendar.HOUR_OF_DAY, 20);
-        birthday.set(Calendar.MINUTE, 20);
-        birthday.set(Calendar.SECOND, 20);
-        birthday.set(Calendar.MILLISECOND, 400);
-
-        System.out.println(simpleDateFormat.format(birthday.getTimeInMillis()));
-
-        SimpleCalendar simple = getDiffData(max, birthday);
-        System.out.println(simple.toString());
+        System.out.println(decimalFormat(1, 000.10));
     }
 
+    public static String decimalFormat(int formatType, double data) {
+        String pattern;
+        switch (formatType) {
+            case 0:
+                pattern = "#.##";
+                break;
+            case 1:
+                pattern = "00.00";
+                break;
+            case 2:
+                pattern = "#.#";
+                break;
+            case 3:
+                pattern = "0.0";
+                break;
+            case 4:
+                pattern = "0.##";
+                break;
+            default:
+                pattern = "0.0";
+                break;
+        }
+        DecimalFormat decimalFormat = new DecimalFormat(pattern);
+        return decimalFormat.format(data);
+    }
     public static class SimpleCalendar {
         public long millis;
         public int year = -1;
